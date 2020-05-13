@@ -119,7 +119,7 @@
 
         <dependency>
             <groupId>walkingkooka</groupId>
-            <artifactId>j2cl-java-util-Locale</artifactId>
+            <artifactId>j2cl-java-util-TimeZone</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
@@ -156,6 +156,7 @@
                     <target>9</target>
                     <compilerArgs>
                         <arg>-Awalkingkooka.j2cl.java.util.Locale=,EN-*,DE-DE</arg>
+                        <arg>-Awalkingkooka.j2cl.java.util.TimeZone=GMT,Europe/*</arg>
                         <arg>-Awalkingkooka.j2cl.locale.Logging=SLASH_SLASH_COMMENTS</arg>
                     </compilerArgs>
                 </configuration>
@@ -227,6 +228,7 @@
                 <configuration>
                     <excludes>
                         <exclude>walkingkooka/j2cl/java/util/locale/LocaleProvider*</exclude>
+                        <exclude>walkingkooka/j2cl/java/util/timezone/TimeZoneProvider*</exclude>
                     </excludes>
                 </configuration>
             </plugin>
@@ -237,6 +239,7 @@
                 <configuration>
                     <excludes>
                         <exclude>walkingkooka/j2cl/java/util/locale/LocaleProvider*</exclude>
+                        <exclude>walkingkooka/j2cl/java/util/timezone/TimeZoneProvider*</exclude>
                     </excludes>
                 </configuration>
                 <executions>
