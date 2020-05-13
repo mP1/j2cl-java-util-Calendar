@@ -10,6 +10,7 @@
 
 This project aims to provide a more complete `java.util.Calendar`. Large portions of the source and javadoc have been copied from the Apache Harmony project.
 
+- TimeZone ID=GMT is required by `java.util.GregorianCalendar`.
 - Serialization is not supported, and all support classes and forms including magic methods such as `writeReplace` have been removed.
 
 
@@ -17,6 +18,7 @@ This project aims to provide a more complete `java.util.Calendar`. Large portion
 ## Annotation processor arguments
 
 - See [j2cl-java-util-locale-annotation-processor](https://github.com/mP1/j2cl-java-util-locale-annotation-processor) for more info about selecting which locales get bundled.
+- See [j2cl-java-util-TimeZone-annotation-processor](https://github.com/mP1/j2cl-java-util-TimeZone-annotation-processor) for more info about selecting which timezones get bundled.
 - See [j2cl-locale](https://github.com/mP1/j2cl-locale) for more info about logging.
 
 
