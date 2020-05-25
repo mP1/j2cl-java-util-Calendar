@@ -26,7 +26,7 @@ This project aims to provide a more complete `java.util.Calendar`. Large portion
 
 `java.util.Calendar`
 
-- TODO
+- The only calendar implementation available is `java.util.GregorianCalendar` is available.
 
 
 
