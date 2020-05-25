@@ -18,9 +18,10 @@
 package walkingkooka.j2cl.java.util.calendar;
 
 import javaemul.internal.annotations.GwtIncompatible;
+import walkingkooka.j2cl.locale.HasTimeZoneCalendar;
+import walkingkooka.j2cl.locale.TimeZoneCalendar;
 
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.TimeZone;
 
@@ -424,15 +425,41 @@ public abstract class Calendar implements Comparable<Calendar>{
      * @param locale
      *            the locale.
      */
-    protected Calendar(TimeZone timezone, Locale locale) {
+    protected Calendar(final TimeZone timezone, final Locale locale) {
         this(timezone);
 //        com.ibm.icu.util.Calendar icuCalendar = com.ibm.icu.util.Calendar
 //                .getInstance(com.ibm.icu.util.SimpleTimeZone
 //                        .getTimeZone(timezone.getID()), locale);
 //        setFirstDayOfWeek(icuCalendar.getFirstDayOfWeek());
 //        setMinimalDaysInFirstWeek(icuCalendar.getMinimalDaysInFirstWeek());
-    }
 
+        final int firstDayOfWeek;
+        final int minimalDaysInFirstWeek;
+
+        // null guard here prevents stack overflow a few lines below
+        if(null == timezone) {
+            firstDayOfWeek = 1;
+            minimalDaysInFirstWeek = 1;
+        } else {
+            final Object timeZoneObject = timezone;
+            if (timeZoneObject instanceof HasTimeZoneCalendar) {
+                // should be the path selected when transpiled
+                final HasTimeZoneCalendar has = (HasTimeZoneCalendar) timeZoneObject;
+                final TimeZoneCalendar timeZoneCalendar = has.timeZoneCalendar(locale);
+
+                firstDayOfWeek = timeZoneCalendar.firstDayOfWeek;
+                minimalDaysInFirstWeek = timeZoneCalendar.minimalDaysInFirstWeek;
+            } else {
+                // should only be called within a JVM.
+                final java.util.Calendar calendar = new java.util.GregorianCalendar(timezone, locale);
+                firstDayOfWeek = calendar.getFirstDayOfWeek();
+                minimalDaysInFirstWeek = calendar.getMinimalDaysInFirstWeek();
+            }
+        }
+
+        setFirstDayOfWeek(firstDayOfWeek);
+        setMinimalDaysInFirstWeek(minimalDaysInFirstWeek);
+    }
 
     /**
      * Adds the specified amount to a {@code Calendar} field.
@@ -460,10 +487,10 @@ public abstract class Calendar implements Comparable<Calendar>{
      *                from the current field values.
      */
     public boolean after(Object calendar) {
-        if (!(calendar instanceof java.util.Calendar)) {
+        if (!(calendar instanceof Calendar)) {
             return false;
         }
-        return getTimeInMillis() > ((java.util.Calendar) calendar).getTimeInMillis();
+        return getTimeInMillis() > ((Calendar) calendar).getTimeInMillis();
     }
 
     /**
@@ -479,10 +506,10 @@ public abstract class Calendar implements Comparable<Calendar>{
      *                from the current field values.
      */
     public boolean before(Object calendar) {
-        if (!(calendar instanceof java.util.Calendar)) {
+        if (!(calendar instanceof Calendar)) {
             return false;
         }
-        return getTimeInMillis() < ((java.util.Calendar) calendar).getTimeInMillis();
+        return getTimeInMillis() < ((Calendar) calendar).getTimeInMillis();
     }
 
     /**
@@ -519,7 +546,7 @@ public abstract class Calendar implements Comparable<Calendar>{
 //    @Override
 //    public Object clone() {
 //        try {
-//            walkingkooka.j2cl.java.util.calendar.Calendar clone = new walkingkooka.j2cl.java.util.calendar.Calendar(this.zone);
+//            walkingkooka.j2cl.Calendar.Calendar clone = new walkingkooka.j2cl.Calendar.Calendar(this.zone);
 //            clone.fields = fields.clone();
 //            clone.isSet = isSet.clone();
 //            return clone;
@@ -582,10 +609,10 @@ public abstract class Calendar implements Comparable<Calendar>{
         if (this == object) {
             return true;
         }
-        if (!(object instanceof walkingkooka.j2cl.java.util.calendar.Calendar)) {
+        if (!(object instanceof Calendar)) {
             return false;
         }
-        walkingkooka.j2cl.java.util.calendar.Calendar cal = (walkingkooka.j2cl.java.util.calendar.Calendar) object;
+        Calendar cal = (Calendar) object;
         return getTimeInMillis() == cal.getTimeInMillis()
                 && isLenient() == cal.isLenient()
                 && getFirstDayOfWeek() == cal.getFirstDayOfWeek()
@@ -700,7 +727,7 @@ public abstract class Calendar implements Comparable<Calendar>{
      * @return a {@code Calendar} subclass instance set to the current date and time in
      *         the default {@code Timezone}.
      */
-    public static synchronized java.util.Calendar getInstance() {
+    public static synchronized Calendar getInstance() {
         return new GregorianCalendar();
     }
 
@@ -712,7 +739,7 @@ public abstract class Calendar implements Comparable<Calendar>{
      *            the locale to use.
      * @return a {@code Calendar} subclass instance set to the current date and time.
      */
-    public static synchronized java.util.Calendar getInstance(Locale locale) {
+    public static synchronized Calendar getInstance(Locale locale) {
         return new GregorianCalendar(locale);
     }
 
@@ -725,7 +752,7 @@ public abstract class Calendar implements Comparable<Calendar>{
      * @return a {@code Calendar} subclass instance set to the current date and time in
      *         the specified timezone.
      */
-    public static synchronized java.util.Calendar getInstance(TimeZone timezone) {
+    public static synchronized Calendar getInstance(TimeZone timezone) {
         return new GregorianCalendar(timezone);
     }
 
@@ -740,8 +767,8 @@ public abstract class Calendar implements Comparable<Calendar>{
      * @return a {@code Calendar} subclass instance set to the current date and time in
      *         the specified timezone.
      */
-    public static synchronized java.util.Calendar getInstance(TimeZone timezone,
-                                                              Locale locale) {
+    public static synchronized Calendar getInstance(TimeZone timezone,
+                                                    Locale locale) {
         return new GregorianCalendar(timezone, locale);
     }
 

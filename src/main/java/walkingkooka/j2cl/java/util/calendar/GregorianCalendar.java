@@ -21,7 +21,6 @@ import javaemul.internal.annotations.GwtIncompatible;
 
 import java.util.Date;
 import java.util.Locale;
-import java.util.SimpleTimeZone;
 import java.util.TimeZone;
 
 /**
@@ -643,8 +642,9 @@ public class GregorianCalendar extends Calendar {
 
             long newTimeAdjusted = newTime;
             if (getTimeZone().useDaylightTime()) {
-                int dstSavings = ((SimpleTimeZone) getTimeZone())
-                        .getDSTSavings();
+//                int dstSavings = ((SimpleTimeZone) getTimeZone())
+//                        .getDSTSavings();
+                int dstSavings = getTimeZone().getDSTSavings();
                 newTimeAdjusted += (dstOffset == 0) ? dstSavings : -dstSavings;
             }
 
@@ -668,7 +668,8 @@ public class GregorianCalendar extends Calendar {
         if (!isCached
                 && newTime != 0x7fffffffffffffffL
                 && newTime != 0x8000000000000000L
-                && (!getTimeZone().useDaylightTime() || getTimeZone() instanceof SimpleTimeZone)) {
+                // && (!getTimeZone().useDaylightTime() || getTimeZone() instanceof SimpleTimeZone)) { https://github.com/mP1/j2cl-java-util-TimeZone/issues/67
+        ){
             int cacheMillis = 0;
 
             cachedFields[0] = fields[YEAR];
