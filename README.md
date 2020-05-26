@@ -22,11 +22,14 @@ This project aims to provide a more complete `java.util.Calendar`. Large portion
 - See [j2cl-locale](https://github.com/mP1/j2cl-locale) for more info about logging.
 
 
+
 ## Missing/Unsupported APIs
 
 `java.util.Calendar`
 
-- The only calendar implementation available is `java.util.GregorianCalendar` is available.
+- The only calendar implementation available is `java.util.GregorianCalendar`.
+- `java.util.BuddhistCalendar` is not yet implemented, [ticket](https://github.com/mP1/j2cl-java-util-Calendar/issues/10) 
+- `java.util.JapaneseImperialCalendar` is not yet implemented, [ticket](https://github.com/mP1/j2cl-java-util-Calendar/issues/11) 
 
 
 
