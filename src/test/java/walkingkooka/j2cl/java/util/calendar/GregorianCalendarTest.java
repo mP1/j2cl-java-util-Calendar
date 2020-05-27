@@ -299,6 +299,12 @@ public final class GregorianCalendarTest extends CalendarTestCase<GregorianCalen
         this.checkEquals(jre, emulated);
     }
 
+    @Test
+    public void testClone() {
+        final Calendar emulated = emulatedCalendar();
+        assertEquals(emulated, emulated.clone());
+    }
+
     private final static TimeZone TIME_ZONE = TimeZone.getTimeZone("Sydney/Australia");
     private final static Locale LOCALE = Locale.forLanguageTag("EN-AU");
 

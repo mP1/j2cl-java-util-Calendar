@@ -21,6 +21,7 @@ import javaemul.internal.annotations.GwtIncompatible;
 import walkingkooka.j2cl.locale.HasTimeZoneCalendar;
 import walkingkooka.j2cl.locale.TimeZoneCalendar;
 
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
@@ -536,29 +537,41 @@ public abstract class Calendar implements Comparable<Calendar>{
         areFieldsSet = isTimeSet = false;
     }
 
-//    /**
-//     * Returns a new {@code Calendar} with the same properties.
-//     *
-//     * @return a shallow copy of this {@code Calendar}.
-//     *
-//     * @see java.lang.Cloneable
-//     */
-//    @Override
-//    public Object clone() {
-//        try {
-//            walkingkooka.j2cl.Calendar.Calendar clone = new walkingkooka.j2cl.Calendar.Calendar(this.zone);
+    /**
+     * Returns a new {@code Calendar} with the same properties.
+     *
+     * @return a shallow copy of this {@code Calendar}.
+     *
+     * @see java.lang.Cloneable
+     */
+    public Object clone() {
+        //try {
+            return newInstance(this.zone);
 //            clone.fields = fields.clone();
 //            clone.isSet = isSet.clone();
-//            return clone;
 //        } catch (CloneNotSupportedException e) {
 //            return null;
 //        }
-//    }
+    }
 
-    // similar to Object.clone but without the magic requiring a new instance.
-    void clone0(final Calendar clone) {
-        clone.setFirstDayOfWeek(this.getFirstDayOfWeek());
-        clone.setMinimalDaysInFirstWeek(this.getMinimalDaysInFirstWeek());
+    /**
+     * Abstract method that creates the actual instance and copies all required fields.
+     */
+    abstract Calendar newInstance(final TimeZone timeZone);
+
+    // helper that emulates much of the functionality of Object#clone.
+    final void cloneCopyFields(final Calendar from) {
+        this.areFieldsSet = from.areFieldsSet;
+        this.firstDayOfWeek = from.firstDayOfWeek;
+        this.fields = Arrays.copyOf(from.fields, from.fields.length);
+        this.isSet = Arrays.copyOf(from.isSet, from.isSet.length);
+        this.isTimeSet = from.isTimeSet;
+        this.lastDateFieldSet = from.lastDateFieldSet;
+        this.lastTimeFieldSet = from.lastTimeFieldSet;
+        this.lenient = from.lenient;
+        this.minimalDaysInFirstWeek = from.minimalDaysInFirstWeek;
+        this.time = from.time;
+        this.zone = (TimeZone)from.zone.clone();
     }
 
     /**

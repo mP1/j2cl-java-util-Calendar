@@ -182,12 +182,22 @@ public class JunitTest {
         Assert.assertEquals("SECOND " + calendar, seconds, calendar.get(Calendar.SECOND));
     }
 
+    @Test
+    public void testClone() {
+        final Calendar calendar = calendar();
+        final Object clone = calendar.clone();
+        Assert.assertNotSame(calendar, clone);
+        Assert.assertEquals(calendar, clone);
+    }
+
     private Calendar calendar() {
         final TimeZone timeZone = TimeZone.getTimeZone("Australia/Sydney");
         Assert.assertNotNull("timeZone", timeZone);
 
         final Locale locale = Locale.forLanguageTag("en-AU");
         Assert.assertNotNull("locale", locale);
+
+        Locale.setDefault(locale);
 
         return Calendar.getInstance(timeZone, locale);
     }
