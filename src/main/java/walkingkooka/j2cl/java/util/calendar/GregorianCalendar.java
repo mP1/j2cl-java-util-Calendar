@@ -19,6 +19,7 @@ package walkingkooka.j2cl.java.util.calendar;
 
 import javaemul.internal.annotations.GwtIncompatible;
 
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
@@ -464,6 +465,25 @@ public class GregorianCalendar extends Calendar {
 //        thisClone.cachedFields = cachedFields.clone();
 //        return thisClone;
 //    }
+
+    @Override
+    Calendar newInstance(final TimeZone timeZone) {
+        final GregorianCalendar clone = new GregorianCalendar(timeZone);
+        clone.cloneCopyFields(this);
+
+        clone.cachedFields = Arrays.copyOf(this.cachedFields, this.cachedFields.length);
+        clone.changeYear = this.changeYear;
+        clone.currentYearSkew = this.currentYearSkew;
+        clone.gregorianCutover = this.gregorianCutover;
+        clone.isCached = this.isCached;
+        clone.julianSkew = this.julianSkew;
+        clone.lastMidnightMillis = this.lastMidnightMillis;
+        clone.lastYearSkew = this.lastYearSkew;
+        clone.nextMidnightMillis = this.nextMidnightMillis;
+        clone.time = this.time;
+
+        return clone;
+    }
 
     private final void fullFieldsCalc(long timeVal, int millis, int zoneOffset) {
         long days = timeVal / 86400000;
@@ -1050,8 +1070,7 @@ public class GregorianCalendar extends Calendar {
                         + ((daysInMonth() - get(DATE)) / 7);
                 break;
             case YEAR:
-                //GregorianCalendar clone = (GregorianCalendar) clone();
-                GregorianCalendar clone = clone0();
+                GregorianCalendar clone = (GregorianCalendar) clone();
                 if (get(ERA) == AD) {
                     clone.setTimeInMillis(Long.MAX_VALUE);
                 } else {
@@ -1069,19 +1088,6 @@ public class GregorianCalendar extends Calendar {
         }
         time = orgTime;
         return result;
-    }
-
-    // replaces clone()
-
-    private GregorianCalendar clone0() {
-        final GregorianCalendar clone = new GregorianCalendar(this.getTimeZone());
-        this.clone0(clone);
-        return clone;
-    }
-
-    private void clone0(final GregorianCalendar clone) {
-        clone.setTimeInMillis(this.getTimeInMillis());
-        super.clone0(clone);
     }
 
     /**
