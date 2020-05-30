@@ -777,7 +777,7 @@ public class GregorianCalendar extends Calendar {
         if (isSet[HOUR_OF_DAY] && lastTimeFieldSet != HOUR) {
             hour = fields[HOUR_OF_DAY];
         } else if (isSet[HOUR]) {
-            hour = (fields[AM_PM] * 12) + fields[HOUR];
+            hour = (fields[AM_PM] * 12) + fields[HOUR];/* lgtm[java/integer-multiplication-cast-to-long] */
         }
         timeVal = hour * 3600000;
 
@@ -851,16 +851,16 @@ public class GregorianCalendar extends Calendar {
                         && lastDateFieldSet != DAY_OF_WEEK_IN_MONTH) {
                     int skew = mod7(days - 3 - (getFirstDayOfWeek() - 1));
                     days += (fields[WEEK_OF_MONTH] - 1) * 7
-                            + mod7(skew + dayOfWeek - (days - 3)) - skew;
+                            + mod7(skew + dayOfWeek - (days - 3)) - skew;/* lgtm[java/integer-multiplication-cast-to-long] */
                 } else if (isSet[DAY_OF_WEEK_IN_MONTH]) {
                     if (fields[DAY_OF_WEEK_IN_MONTH] >= 0) {
                         days += mod7(dayOfWeek - (days - 3))
-                                + (fields[DAY_OF_WEEK_IN_MONTH] - 1) * 7;
+                                + (fields[DAY_OF_WEEK_IN_MONTH] - 1) * 7;/* lgtm[java/integer-multiplication-cast-to-long] */
                     } else {
                         days += daysInMonth(leapYear, month)
                                 + mod7(dayOfWeek
                                         - (days + daysInMonth(leapYear, month) - 3))
-                                + fields[DAY_OF_WEEK_IN_MONTH] * 7;
+                                + fields[DAY_OF_WEEK_IN_MONTH] * 7;/* lgtm[java/integer-multiplication-cast-to-long] */
                     }
                 } else if (isSet[DAY_OF_WEEK]) {
                     int skew = mod7(days - 3 - (getFirstDayOfWeek() - 1));
@@ -883,7 +883,7 @@ public class GregorianCalendar extends Calendar {
                 }
                 int skew = mod7(days - 3 - (getFirstDayOfWeek() - 1));
                 days += (fields[WEEK_OF_YEAR] - 1) * 7
-                        + mod7(skew + dayOfWeek - (days - 3)) - skew;
+                        + mod7(skew + dayOfWeek - (days - 3)) - skew;/* lgtm[java/integer-multiplication-cast-to-long] */
                 if (7 - skew < getMinimalDaysInFirstWeek()) {
                     days += 7;
                 }
