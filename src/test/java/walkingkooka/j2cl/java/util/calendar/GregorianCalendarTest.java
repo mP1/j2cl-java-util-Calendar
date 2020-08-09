@@ -19,8 +19,10 @@ package walkingkooka.j2cl.java.util.calendar;
 
 import org.junit.jupiter.api.Test;
 
+import java.lang.reflect.Method;
 import java.util.Locale;
 import java.util.TimeZone;
+import java.util.function.Predicate;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -380,5 +382,24 @@ public final class GregorianCalendarTest extends CalendarTestCase<GregorianCalen
     @Override
     public Class<GregorianCalendar> type() {
         return GregorianCalendar.class;
+    }
+
+    // ShadedClassTesting................................................................................................
+
+    @Override
+    public final Predicate<Method> requiredMethods() {
+        return m -> {
+            final boolean required;
+            switch (m.getName()) {
+                case "setFirstDayOfWeek":
+                case "setMinimalDaysInFirstWeek":
+                    required = false;
+                    break;
+                default:
+                    required = true;
+                    break;
+            }
+            return required;
+        };
     }
 }

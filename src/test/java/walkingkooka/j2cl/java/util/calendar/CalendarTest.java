@@ -17,6 +17,11 @@
 
 package walkingkooka.j2cl.java.util.calendar;
 
+import walkingkooka.predicate.Predicates;
+
+import java.lang.reflect.Method;
+import java.util.function.Predicate;
+
 public final class CalendarTest extends CalendarTestCase<Calendar> {
 
     // ClassTesting.....................................................................................................
@@ -24,5 +29,12 @@ public final class CalendarTest extends CalendarTestCase<Calendar> {
     @Override
     public Class<Calendar> type() {
         return Calendar.class;
+    }
+
+    // ShadedClassTesting................................................................................................
+
+    @Override
+    public final Predicate<Method> requiredMethods() {
+        return Predicates.always();
     }
 }

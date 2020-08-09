@@ -42,18 +42,13 @@ public abstract class CalendarTestCase<C extends Calendar> implements ShadedClas
     }
 
     @Override
-    public final Predicate<Method> requiredMethods() {
-        return Predicates.always();
-    }
-
-    @Override
     public final Predicate<Field> requiredFields() {
-        return Predicates.always();
+        return f -> false == f.getName().equals("serialVersionUID");
     }
 
     @Override
     public final UnaryOperator<Class<?>> typeMapper() {
         return ShadedClassTesting.typeMapper(PackageName.from(this.getClass().getPackage()),
-                PackageName.from(Calendar.class.getPackage()));
+                PackageName.from(java.util.Calendar.class.getPackage()));
     }
 }
