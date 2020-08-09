@@ -18,19 +18,42 @@
 package walkingkooka.j2cl.java.util.calendar;
 
 import walkingkooka.ToStringTesting;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.javashader.ShadedClassTesting;
+import walkingkooka.predicate.Predicates;
+import walkingkooka.reflect.PackageName;
 
-public abstract class CalendarTestCase<C extends Calendar> implements ClassTesting<C>, ToStringTesting<C> {
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.util.function.Predicate;
+import java.util.function.UnaryOperator;
+
+public abstract class CalendarTestCase<C extends Calendar> implements ShadedClassTesting<C>, ToStringTesting<C> {
 
     CalendarTestCase() {
         super();
     }
 
-    // ClassTesting.....................................................................................................
+    // ShadedClassTesting................................................................................................
 
     @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
+    public final Predicate<Constructor> requiredConstructors() {
+        return Predicates.always();
+    }
+
+    @Override
+    public final Predicate<Method> requiredMethods() {
+        return Predicates.always();
+    }
+
+    @Override
+    public final Predicate<Field> requiredFields() {
+        return Predicates.always();
+    }
+
+    @Override
+    public final UnaryOperator<Class<?>> typeMapper() {
+        return ShadedClassTesting.typeMapper(PackageName.from(this.getClass().getPackage()),
+                PackageName.from(Calendar.class.getPackage()));
     }
 }
