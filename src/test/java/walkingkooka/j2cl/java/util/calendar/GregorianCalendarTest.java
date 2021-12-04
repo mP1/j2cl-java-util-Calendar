@@ -30,172 +30,172 @@ public final class GregorianCalendarTest extends CalendarTestCase<GregorianCalen
 
     @Test
     public void testEraConstant() {
-        assertEquals(java.util.Calendar.ERA, Calendar.ERA, "Calendar.ERA");
+        this.checkEquals(java.util.Calendar.ERA, Calendar.ERA, "Calendar.ERA");
     }
 
     @Test
     public void testYearConstant() {
-        assertEquals(java.util.Calendar.YEAR, Calendar.YEAR, "Calendar.YEAR");
+        this.checkEquals(java.util.Calendar.YEAR, Calendar.YEAR, "Calendar.YEAR");
     }
 
     @Test
     public void testMonthConstant() {
-        assertEquals(java.util.Calendar.MONTH, Calendar.MONTH, "Calendar.MONTH");
+        this.checkEquals(java.util.Calendar.MONTH, Calendar.MONTH, "Calendar.MONTH");
     }
 
     @Test
     public void testDayOfMonthConstant() {
-        assertEquals(java.util.Calendar.DAY_OF_MONTH, Calendar.DAY_OF_MONTH, "Calendar.DAY_OF_MONTH");
+        this.checkEquals(java.util.Calendar.DAY_OF_MONTH, Calendar.DAY_OF_MONTH, "Calendar.DAY_OF_MONTH");
     }
 
     @Test
     public void testDayOfWeekConstant() {
-        assertEquals(java.util.Calendar.DAY_OF_WEEK, Calendar.DAY_OF_WEEK, "Calendar.DAY_OF_WEEK");
+        this.checkEquals(java.util.Calendar.DAY_OF_WEEK, Calendar.DAY_OF_WEEK, "Calendar.DAY_OF_WEEK");
     }
 
     @Test
     public void testDayOfWeekInMonthConstant() {
-        assertEquals(java.util.Calendar.DAY_OF_WEEK_IN_MONTH, Calendar.DAY_OF_WEEK_IN_MONTH, "Calendar.DAY_OF_WEEK_IN_MONTH");
+        this.checkEquals(java.util.Calendar.DAY_OF_WEEK_IN_MONTH, Calendar.DAY_OF_WEEK_IN_MONTH, "Calendar.DAY_OF_WEEK_IN_MONTH");
     }
 
     @Test
     public void testAmConstant() {
-        assertEquals(java.util.Calendar.AM, Calendar.AM, "Calendar.AM");
+        this.checkEquals(java.util.Calendar.AM, Calendar.AM, "Calendar.AM");
     }
 
     @Test
     public void testPmConstant() {
-        assertEquals(java.util.Calendar.PM, Calendar.PM, "Calendar.PM");
+        this.checkEquals(java.util.Calendar.PM, Calendar.PM, "Calendar.PM");
     }
 
     @Test
     public void testAmpmConstant() {
-        assertEquals(java.util.Calendar.AM_PM, Calendar.AM_PM, "Calendar.AM_PM");
+        this.checkEquals(java.util.Calendar.AM_PM, Calendar.AM_PM, "Calendar.AM_PM");
     }
 
     @Test
     public void testHourConstant() {
-        assertEquals(java.util.Calendar.HOUR, Calendar.HOUR, "Calendar.HOUR");
+        this.checkEquals(java.util.Calendar.HOUR, Calendar.HOUR, "Calendar.HOUR");
     }
 
     @Test
     public void testHourOfDayConstant() {
-        assertEquals(java.util.Calendar.HOUR_OF_DAY, Calendar.HOUR_OF_DAY, "Calendar.HOUR_OF_DAY");
+        this.checkEquals(java.util.Calendar.HOUR_OF_DAY, Calendar.HOUR_OF_DAY, "Calendar.HOUR_OF_DAY");
     }
 
     @Test
     public void testMinuteConstant() {
-        assertEquals(java.util.Calendar.MINUTE, Calendar.MINUTE, "Calendar.MINUTE");
+        this.checkEquals(java.util.Calendar.MINUTE, Calendar.MINUTE, "Calendar.MINUTE");
     }
 
     @Test
     public void testSecondConstant() {
-        assertEquals(java.util.Calendar.SECOND, Calendar.SECOND, "Calendar.SECOND");
+        this.checkEquals(java.util.Calendar.SECOND, Calendar.SECOND, "Calendar.SECOND");
     }
 
     @Test
     public void testMillisecondsConstant() {
-        assertEquals(java.util.Calendar.MILLISECOND, Calendar.MILLISECOND, "Calendar.MILLISECOND");
+        this.checkEquals(java.util.Calendar.MILLISECOND, Calendar.MILLISECOND, "Calendar.MILLISECOND");
     }
 
     @Test
     public void testMondayConstant() {
-        assertEquals(java.util.Calendar.MONDAY, Calendar.MONDAY, "Calendar.MONDAY");
+        this.checkEquals(java.util.Calendar.MONDAY, Calendar.MONDAY, "Calendar.MONDAY");
     }
 
     @Test
     public void testTuesdayConstant() {
-        assertEquals(java.util.Calendar.TUESDAY, Calendar.TUESDAY, "Calendar.TUESDAY");
+        this.checkEquals(java.util.Calendar.TUESDAY, Calendar.TUESDAY, "Calendar.TUESDAY");
     }
 
     @Test
     public void testWednesdayConstant() {
-        assertEquals(java.util.Calendar.WEDNESDAY, Calendar.WEDNESDAY, "Calendar.WEDNESDAY");
+        this.checkEquals(java.util.Calendar.WEDNESDAY, Calendar.WEDNESDAY, "Calendar.WEDNESDAY");
     }
 
     @Test
     public void testThursdayConstant() {
-        assertEquals(java.util.Calendar.THURSDAY, Calendar.THURSDAY, "Calendar.THURSDAY");
+        this.checkEquals(java.util.Calendar.THURSDAY, Calendar.THURSDAY, "Calendar.THURSDAY");
     }
 
     @Test
     public void testFridayConstant() {
-        assertEquals(java.util.Calendar.FRIDAY, Calendar.FRIDAY, "Calendar.FRIDAY");
+        this.checkEquals(java.util.Calendar.FRIDAY, Calendar.FRIDAY, "Calendar.FRIDAY");
     }
 
     @Test
     public void testSaturdayConstant() {
-        assertEquals(java.util.Calendar.SATURDAY, Calendar.SATURDAY, "Calendar.SATURDAY");
+        this.checkEquals(java.util.Calendar.SATURDAY, Calendar.SATURDAY, "Calendar.SATURDAY");
     }
 
     @Test
     public void testSundayConstant() {
-        assertEquals(java.util.Calendar.SUNDAY, Calendar.SUNDAY, "Calendar.SUNDAY");
+        this.checkEquals(java.util.Calendar.SUNDAY, Calendar.SUNDAY, "Calendar.SUNDAY");
     }
 
     @Test
     public void testJanuaryConstant() {
-        assertEquals(java.util.Calendar.JANUARY, Calendar.JANUARY, "Calendar.JANUARY");
+        this.checkEquals(java.util.Calendar.JANUARY, Calendar.JANUARY, "Calendar.JANUARY");
     }
 
     @Test
     public void testFebruaryConstant() {
-        assertEquals(java.util.Calendar.FEBRUARY, Calendar.FEBRUARY, "Calendar.FEBRUARY");
+        this.checkEquals(java.util.Calendar.FEBRUARY, Calendar.FEBRUARY, "Calendar.FEBRUARY");
     }
 
     @Test
     public void testMarchConstant() {
-        assertEquals(java.util.Calendar.MARCH, Calendar.MARCH, "Calendar.MARCH");
+        this.checkEquals(java.util.Calendar.MARCH, Calendar.MARCH, "Calendar.MARCH");
     }
 
     @Test
     public void testAprilConstant() {
-        assertEquals(java.util.Calendar.APRIL, Calendar.APRIL, "Calendar.APRIL");
+        this.checkEquals(java.util.Calendar.APRIL, Calendar.APRIL, "Calendar.APRIL");
     }
 
     @Test
     public void testMayConstant() {
-        assertEquals(java.util.Calendar.MAY, Calendar.MAY, "Calendar.MAY");
+        this.checkEquals(java.util.Calendar.MAY, Calendar.MAY, "Calendar.MAY");
     }
 
     @Test
     public void testJuneConstant() {
-        assertEquals(java.util.Calendar.JUNE, Calendar.JUNE, "Calendar.JUNE");
+        this.checkEquals(java.util.Calendar.JUNE, Calendar.JUNE, "Calendar.JUNE");
     }
 
     @Test
     public void testJulyConstant() {
-        assertEquals(java.util.Calendar.JULY, Calendar.JULY, "Calendar.JULY");
+        this.checkEquals(java.util.Calendar.JULY, Calendar.JULY, "Calendar.JULY");
     }
 
     @Test
     public void testAugustConstant() {
-        assertEquals(java.util.Calendar.AUGUST, Calendar.AUGUST, "Calendar.AUGUST");
+        this.checkEquals(java.util.Calendar.AUGUST, Calendar.AUGUST, "Calendar.AUGUST");
     }
 
     @Test
     public void testSeptemberConstant() {
-        assertEquals(java.util.Calendar.SEPTEMBER, Calendar.SEPTEMBER, "Calendar.SEPTEMBER");
+        this.checkEquals(java.util.Calendar.SEPTEMBER, Calendar.SEPTEMBER, "Calendar.SEPTEMBER");
     }
 
     @Test
     public void testOctoberConstant() {
-        assertEquals(java.util.Calendar.OCTOBER, Calendar.OCTOBER, "Calendar.OCTOBER");
+        this.checkEquals(java.util.Calendar.OCTOBER, Calendar.OCTOBER, "Calendar.OCTOBER");
     }
 
     @Test
     public void testNovemberConstant() {
-        assertEquals(java.util.Calendar.NOVEMBER, Calendar.NOVEMBER, "Calendar.NOVEMBER");
+        this.checkEquals(java.util.Calendar.NOVEMBER, Calendar.NOVEMBER, "Calendar.NOVEMBER");
     }
 
     @Test
     public void testDecemberConstant() {
-        assertEquals(java.util.Calendar.DECEMBER, Calendar.DECEMBER, "Calendar.DECEMBER");
+        this.checkEquals(java.util.Calendar.DECEMBER, Calendar.DECEMBER, "Calendar.DECEMBER");
     }
 
     @Test
     public void testUndecemberConstant() {
-        assertEquals(java.util.Calendar.UNDECIMBER, Calendar.UNDECIMBER, "Calendar.UNDECIMBER");
+        this.checkEquals(java.util.Calendar.UNDECIMBER, Calendar.UNDECIMBER, "Calendar.UNDECIMBER");
     }
 
     @Test
@@ -304,7 +304,7 @@ public final class GregorianCalendarTest extends CalendarTestCase<GregorianCalen
     @Test
     public void testClone() {
         final Calendar emulated = emulatedCalendar();
-        assertEquals(emulated, emulated.clone());
+        this.checkEquals(emulated, emulated.clone());
     }
 
     private final static TimeZone TIME_ZONE = TimeZone.getTimeZone("Sydney/Australia");
@@ -320,10 +320,10 @@ public final class GregorianCalendarTest extends CalendarTestCase<GregorianCalen
 
     private void checkEquals(final java.util.Calendar jre,
                              final Calendar emulated) {
-        // assertEquals(double, double, so delta is present.
+        // this.checkEquals(double, double, so delta is present.
         assertEquals((double) jre.getTimeInMillis(), (double) emulated.getTimeInMillis(), MILLI_DELTA, "getTimeInMillis");
         assertEquals((double) jre.getTime().getTime(), (double) emulated.getTime().getTime(), MILLI_DELTA, "getTime");
-        assertEquals(jre.getTimeZone(), emulated.getTimeZone(), "timeZone");
+        this.checkEquals(jre.getTimeZone(), emulated.getTimeZone(), "timeZone");
 
         this.checkYear(jre, emulated);
         this.checkMonth(jre, emulated);
@@ -332,8 +332,8 @@ public final class GregorianCalendarTest extends CalendarTestCase<GregorianCalen
         this.checkDayOfYear(jre, emulated);
         this.checkDayOfWeekInMonth(jre, emulated);
 
-        assertEquals(jre.getFirstDayOfWeek(), emulated.getFirstDayOfWeek(), "getFirstDayOfWeek");
-        assertEquals(jre.getMinimalDaysInFirstWeek(), emulated.getMinimalDaysInFirstWeek(), "getMinimalDaysInFirstWeek");
+        this.checkEquals(jre.getFirstDayOfWeek(), emulated.getFirstDayOfWeek(), "getFirstDayOfWeek");
+        this.checkEquals(jre.getMinimalDaysInFirstWeek(), emulated.getMinimalDaysInFirstWeek(), "getMinimalDaysInFirstWeek");
     }
 
     private final static int MILLI_DELTA = 50;
@@ -372,7 +372,7 @@ public final class GregorianCalendarTest extends CalendarTestCase<GregorianCalen
                             final Calendar emulated,
                             final int field,
                             final String label) {
-        assertEquals(jre.get(field),
+        this.checkEquals(jre.get(field),
                 emulated.get(field),
                 jre + " field=" + label);
     }

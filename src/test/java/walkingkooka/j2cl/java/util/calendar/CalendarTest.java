@@ -34,7 +34,7 @@ public final class CalendarTest extends CalendarTestCase<Calendar> {
     // ShadedClassTesting................................................................................................
 
     @Override
-    public final Predicate<Method> requiredMethods() {
+    public Predicate<Method> requiredMethods() {
         return Predicates.always();
     }
 }
