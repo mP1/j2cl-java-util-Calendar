@@ -387,7 +387,7 @@ public final class GregorianCalendarTest extends CalendarTestCase<GregorianCalen
     // ShadedClassTesting................................................................................................
 
     @Override
-    public final Predicate<Method> requiredMethods() {
+    public Predicate<Method> requiredMethods() {
         return m -> {
             final boolean required;
             switch (m.getName()) {
