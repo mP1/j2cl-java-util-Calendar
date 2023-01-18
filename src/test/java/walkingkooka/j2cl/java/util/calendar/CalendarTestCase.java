@@ -24,7 +24,6 @@ import walkingkooka.reflect.PackageName;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 import java.util.function.Predicate;
 import java.util.function.UnaryOperator;
 
@@ -37,7 +36,7 @@ public abstract class CalendarTestCase<C extends Calendar> implements ShadedClas
     // ShadedClassTesting................................................................................................
 
     @Override
-    public final Predicate<Constructor> requiredConstructors() {
+    public final Predicate<Constructor<?>> requiredConstructors() {
         return Predicates.always();
     }
 
