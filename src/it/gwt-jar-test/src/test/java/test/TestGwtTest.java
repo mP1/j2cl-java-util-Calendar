@@ -22,6 +22,9 @@ import java.util.Calendar;
 import java.util.Locale;
 import java.util.TimeZone;
 
+import walkingkooka.j2cl.locale.LocaleAware;
+
+@LocaleAware
 public class TestGwtTest extends GWTTestCase {
 
     @Override
