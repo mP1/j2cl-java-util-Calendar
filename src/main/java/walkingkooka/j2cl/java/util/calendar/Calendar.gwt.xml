@@ -2,6 +2,8 @@
 <module>
   <inherits name="walkingkooka.j2cl.java.util.timezone.TimeZone"/>
 
-  <source path=""/>
+  <source path="">
+    <exclude name="super/**"/>
+  </source>
   <super-source path="super"/>
 </module>
