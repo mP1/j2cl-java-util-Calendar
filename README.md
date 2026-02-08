@@ -6,8 +6,6 @@
 ![](https://tokei.rs/b1/github/mP1/j2cl-java-util-Calendar)
 [![J2CL compatible](https://img.shields.io/badge/J2CL-compatible-brightgreen.svg)](https://github.com/mP1/j2cl-central)
 
-
-
 #  j2cl java.util.Calendar
 
 This project aims to provide a more complete `java.util.Calendar`. Large portions of the source and javadoc have been copied from the Apache Harmony project.
@@ -15,15 +13,11 @@ This project aims to provide a more complete `java.util.Calendar`. Large portion
 - TimeZone ID=GMT is required by `java.util.GregorianCalendar`.
 - Serialization is not supported, and all support classes and forms including magic methods such as `writeReplace` have been removed.
 
-
-
 ## Annotation processor arguments
 
 - See [j2cl-java-util-locale-annotation-processor](https://github.com/mP1/j2cl-java-util-locale-annotation-processor) for more info about selecting which locales get bundled.
 - See [j2cl-java-util-TimeZone-annotation-processor](https://github.com/mP1/j2cl-java-util-TimeZone-annotation-processor) for more info about selecting which timezones get bundled.
 - See [j2cl-locale](https://github.com/mP1/j2cl-locale) for more info about logging.
-
-
 
 ## Missing/Unsupported APIs
 
@@ -33,15 +27,10 @@ This project aims to provide a more complete `java.util.Calendar`. Large portion
 - `java.util.BuddhistCalendar` is not yet implemented, [ticket](https://github.com/mP1/j2cl-java-util-Calendar/issues/10) 
 - `java.util.JapaneseImperialCalendar` is not yet implemented, [ticket](https://github.com/mP1/j2cl-java-util-Calendar/issues/11) 
 
-
-
-
 ### Transpiling
 
 The `j2cl-maven-plugin` will shade the source during the transpile phase, so `Calendar`
 is available in javascript as `java.util.Calendar`. 
-
-
 
 ### IDE build setup
 
