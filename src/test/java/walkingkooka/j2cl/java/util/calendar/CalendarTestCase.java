@@ -27,7 +27,8 @@ import java.lang.reflect.Field;
 import java.util.function.Predicate;
 import java.util.function.UnaryOperator;
 
-public abstract class CalendarTestCase<C extends Calendar> implements ShadedClassTesting<C>, ToStringTesting<C> {
+public abstract class CalendarTestCase<C extends Calendar> implements ShadedClassTesting<C>,
+    ToStringTesting {
 
     CalendarTestCase() {
         super();
